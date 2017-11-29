@@ -1,0 +1,18 @@
+{% load staticfiles %}
+{% load i18n %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="{% static 'style.css' %}"
+	      rel="stylesheet"> 
+	<title>{% trans "Tweet Finder" %}</title>
+</head>
+<body>
+	<h1>{%trans "Tweet Finder"%}</h1>
+	<form method='GET' action="{%url 'results' %}"> {% csrf_token %}
+	{{form.as_p}}
+	<input type='submit' class="search-btn" value="Find Similar Tweets">
+</body>
+</html>

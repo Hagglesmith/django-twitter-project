@@ -1,0 +1,31 @@
+{% load staticfiles %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html>
+<link href="{% static 'style.css' %}"
+	  rel="stylesheet"> 
+</body>
+	<table class="result-tbl">
+		<tr>
+			<td>{% trans "Phrase:" %}</td>
+			<td>{{phrase.phrase_text}}</td>
+		</tr>
+		<br>
+		<tr>
+			<td>{% trans "Frequency:"%}</td>
+			<td>{{phrase.frequency}}</td>
+		</tr>
+		<br>
+		<tr>
+			<td>{% trans "Last Searched:"%}</td>
+			<td>{{phrase.last_searched}} UTC</td>
+		</tr>
+	</table>
+	<br>
+	<h1>{% trans "Tweets Found" %}</h1>
+	{%for tweet in tweets%}
+	<p>@{{tweet.id}}: {{tweet.text}}</p>
+	{% endfor %}
+</body>
+</html>
